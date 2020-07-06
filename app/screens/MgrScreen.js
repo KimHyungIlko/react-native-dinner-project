@@ -7,7 +7,6 @@ const MgrScreen = () => {
           <Text>MgrScreen 안녕 잘지내보자 </Text>
         </View>
     );
-
 }
 
 export default MgrScreen;

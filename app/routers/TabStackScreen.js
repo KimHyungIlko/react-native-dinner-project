@@ -4,11 +4,14 @@ import {createStackNavigator} from "@react-navigation/stack";
 import EmpScreen from '../screens/EmpScreen';
 import MgrScreen from '../screens/MgrScreen';
 import RetScreen from '../screens/RetScreen';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const TabStack = createBottomTabNavigator();
 const EmpStack = createStackNavigator();
 const MgrStack = createStackNavigator();
 const RetStack = createStackNavigator();
+
 
 const EmpStackScreen = () => {
     return(
@@ -34,9 +37,28 @@ const RetStackScreen = () => {
     );
 }
 
+
 const TabStackScreen = () => {
     return(
-        <TabStack.Navigator>
+      
+      
+        <TabStack.Navigator screenOptions={({ route }) => ({
+            tabBarIcon: ({focused, color, size}) => {
+              let iconName;
+              if (route.name === '직원') {
+                iconName = 'people-outline';
+              } else if (route.name === '총무') {
+                iconName = 'document-text-ouline';
+              } else{
+                iconName ='pizza-outline';
+              }
+              return <Icon name={iconName} size={30} color="gray" />;
+            },
+          })}
+          tabBarOptions={{
+            activeTintColor: 'tomato',
+            inactiveTintColor: 'gray',
+          }}>
             <TabStack.Screen name ="직원" component={EmpStackScreen} />
             <TabStack.Screen name ="총무" component={MgrStackScreen} />
             <TabStack.Screen name ="매장" component={RetStackScreen} />

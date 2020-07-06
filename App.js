@@ -1,17 +1,24 @@
 import React from 'react';
 import {StyleSheet, View, Text, SafeAreaView} from 'react-native';
+import TabStackScreen from './app/routers/TabStackScreen';
+import {NavigationContainer} from "@react-navigation/native";
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import EmpScreen from './app/screens/EmpScreen';
 import MgrScreen from './app/screens/MgrScreen';
 import RetScreen from './app/screens/RetScreen';
-import TabStackScreen from './app/routers/TabStackScreen';
-import {NavigationContainer} from "@react-navigation/native";
 
+const Drawer = createDrawerNavigator();
 export default function App(){
   return(
     <NavigationContainer>
-      <SafeAreaView style ={{flex: 1}}> 
-        <TabStackScreen /> 
-      </SafeAreaView>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Emp" component={EmpScreen} />
+        <Drawer.Screen name="Mgr" component={MgrScreen} />
+        <Drawer.Screen name="Ret" component={RetScreen} />
+      </Drawer.Navigator>
+      {/* <SafeAreaView style ={{flex: 1}}>  */}
+        {/* <TabStackScreen />  */}
+      {/* </SafeAreaView> */}
     </NavigationContainer>
   );
 }

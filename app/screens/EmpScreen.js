@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text, Button} from 'react-native';
-const EmpScreen = ({navigation, route}) => {
-  const goToDetails = (e)=>{
-    navigation.navigate("details");
-  }
+import {View, Text, Button, SafeAreaView} from 'react-native';
+import TabStackScreen from '../routers/TabStackScreen';
+import {NavigationContainer} from "@react-navigation/native";
+
+const EmpScreen = () => {
+
     return(
-      <>
-        <View>
-          <Text>EmpScreen 안녕 잘지내보자 </Text>
-        </View>
-      </>
+      <View>
+        <Text>EmpScreen 안녕 잘지내보자 </Text>
+      </View>
     );
 }
 export default EmpScreen;

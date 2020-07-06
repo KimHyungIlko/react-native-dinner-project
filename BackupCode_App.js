@@ -53,7 +53,7 @@ const App: () => React$Node = () => {
     </Card.Actions>
   </Card>
 
-  <Card>ㅋ
+  <Card>
     <Card.Title title="Card Title" subtitle="Card Subtitle" left={LeftContent} />
     <Card.Content>
        <Title>Card title</Title>

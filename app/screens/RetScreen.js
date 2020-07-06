@@ -7,7 +7,6 @@ const RetScreen = () => {
           <Text>RetScreen 안녕 잘지내보자 </Text>
         </View>
     );
-
 }
 
 export default RetScreen;
