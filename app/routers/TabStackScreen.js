@@ -6,6 +6,7 @@ import EmpScreen from '../screens/EmpScreen';
 import MgrScreen from '../screens/MgrScreen';
 import EmpRetScreen from '../screens/EmpRetScreen';
 import EmpMoneyScreen from '../screens/EmpMoneyScreen';
+import EmpPaymentScreen from '../screens/EmpPaymentScreen';
 
 const TabStack = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -33,6 +34,15 @@ const MyStack = () => {
                         },
                     }}/>
             <Stack.Screen name="EmpMoney" component={EmpMoneyScreen} 
+                        options={{ title: '금액 현황',
+                        headerTitleAlign: 'center',
+                        headerStyle: {backgroundColor: 'transparent',},
+                        headerTintColor: 'black',
+                        headerTitleStyle: {
+                        fontWeight: 'bold',
+                        },
+                    }}/>
+            <Stack.Screen name="EmpPayment" component={EmpPaymentScreen} 
                         options={{ title: '금액 현황',
                         headerTitleAlign: 'center',
                         headerStyle: {backgroundColor: 'transparent',},

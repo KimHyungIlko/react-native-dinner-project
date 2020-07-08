@@ -37,7 +37,7 @@ const EmpRetScreen = () => {
     return(
         <View style ={{flex:1}}>
 
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EmpMoney')}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EmpPayment')}>
           <Text style={styles.buttonText}>금액 현황 보기</Text>
           </TouchableOpacity>
 
