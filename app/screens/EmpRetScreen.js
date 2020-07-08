@@ -1,50 +1,216 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View, Image, Text, TouchableOpacity, 
+  ImageBackground ,StyleSheet, Dimensions, FlatList} from 'react-native';
 import { useNavigation } from '@react-navigation/native'; //필수로 필요함 페이지 이동시에 
+import LinearGradient from 'react-native-linear-gradient';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
+const width = Dimensions.get("screen").width
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    backgroundColor:'transparent'
-  },
-  button: {
-    marginTop: 110,
-    alignSelf: 'center',
-    borderWidth: 2,
-    borderRadius: 10,
-    padding: 30,
-    borderColor:'gray',
     backgroundColor:'transparent',
-    width:200,
+  },
+  header: {
+    marginTop:0,
+  },
+  bar: {
+    flex:1
+  },
+  ImageBackground: {
+    width: width*0.4,
+    height: width * 0.2,
+    alignItems:'center'
+  },
+  title: {
+    color:'white',
+    marginTop:25,
+    fontWeight: 'bold',
+    fontSize:25,
+    left : 5,
+  },
+  flatList:{
+    flex:1,
+    // marginTop:10,
+  },
+  item:{
+    flex:1,
+    paddingVertical:10,
+    paddingHorizontal:10,
+    flexDirection:'row',
+    borderRadius:10,
+  },
+  image_container:{
+    width:90,
+    height:90
   },
   image: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-    width: "100%",
-    height:"100%",
+    width: '100%',
+    height: '100%',
+    borderWidth:5,
+    borderColor:'white',
+    borderRadius:10,
   },
-  buttonText:{
-    fontSize: 20,
-    fontWeight: "bold",
-    color:"black",
-    alignSelf: 'center',
+  content:{
+    flex:1,
+    justifyContent:'center',
+    paddingHorizontal:10,
+  },
+  name:{
+    color:'white',
+    fontWeight:'bold',
+    fontSize:20,
+  },
+  rating:{
+    marginTop:5,
+    flexDirection:'row',
+  },
+  button:{
+    width:30,
+    height:30,
+    backgroundColor:'white',
+    borderRadius:15,
+    justifyContent:'center',
+    alignItems:'center',
+  },
+  price_container:{
+    flexDirection:'row',
+    marginTop:10,
+  },
+  price:{
+    backgroundColor:'white',
+    paddingVertical:5,
+    paddingHorizontal:50,
+    borderRadius:50,
+  },
+  textprice:{
+    color:'black',
+    fontWeight: 'bold',
   }
 });
-const EmpRetScreen = () => {
-  const navigation = useNavigation(); //페이지이동 필수 요소
+
+
+export default class EmpRetScreen extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state={
+      data:[
+        {
+          name: 'Stewed Mushrooms',
+          image: require('../../images/background.png'),
+          ratings: 3,
+          price: '$126'
+        },
+        {
+          name: 'Stewed Mushrooms22',
+          image: require('../../images/background.png'),
+          ratings: 2,
+          price: '$125'
+        },
+        {
+          name: 'Stewed Mushrooms33',
+          image: require('../../images/background.png'),
+          ratings: 1,
+          price: '$124'
+        },
+        {
+          name: 'Stewed Mushrooms44',
+          image: require('../../images/background.png'),
+          ratings: 5,
+          price: '$132'
+        },
+        {
+          name: 'Stewed Mushrooms55',
+          image: require('../../images/background.png'),
+          ratings: 4,
+          price: '$112'
+        },
+      ]
+    }
+  }
+
+  _rating(item){
+    let rating =[];
+    for(i=0;i<item;i++){
+      rating.push(
+        <Image
+          source={require('../../images/background.png')}
+          style={{width:15, height:15, marginLeft:3}}
+          resizeMode="cover"
+        />
+      )
+    }
+    return rating;
+  }
+
+  renderItem =({item}) => {
     return(
-        <View style ={{flex:1}}>
+      <LinearGradient 
+      colors={['#4c669f', '#2b4887']}
+      start={{x:0, y:1}} end={{x:1,y:0}}
+      style={styles.item}>
+      
+      
+        <View style={styles.image_container}>
+          <Image source={item.image} style={styles.image}/>
+        </View>
 
-          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('EmpPayment')}>
-          <Text style={styles.buttonText}>금액 현황 보기</Text>
-          </TouchableOpacity>
+        <View style={styles.content}>
+          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.rating}>
+            {this._rating(item.ratings)}
+          </Text>
+          <Text style={styles.price_container}>
+            <Text style={styles.price}>
+              <Text style={styles.textprice}>
+              {item.price}
+              </Text>
+            </Text>
+          </Text>
+        </View>
+        <TouchableOpacity style={styles.button}>
+          <AntDesign
+            name='arrowright'
+            color="black"
+            size={15}
+          />
+        </TouchableOpacity>
+      </LinearGradient>
+    )
+  }
 
-          <Text>EmpRetScreen 안녕 잘지내보자 </Text>
+  ItemSeparatorComponent=()=>{
+    return(
+      <View
+        style={{height:10,}}
+      />
+    )
+  }
+
+  // navigation = useNavigation(); //페이지이동 필수 요소
+  render(){
+    return(
+        <View style ={styles.container}>
+          <View style={styles.header}>
+            <ImageBackground 
+            source ={require('../../images/background.png')}
+            style={styles.ImageBackground}
+            resizeMode="center">
+            <Text style={styles.title}>직원 확인</Text>
+            </ImageBackground>
+          </View>
+          <View style={styles.flatList}>
+            <FlatList 
+              data={this.state.data}
+              renderItem={this.renderItem}
+              keyExtractor={(item,index)=>index.toString()}
+              ItemSeparatorComponent={this.ItemSeparatorComponent}
+              showsVerticalScrollIndicator={false}
+            />
+          </View>
         </View>
     );
-
+  }
 }
-
-export default EmpRetScreen;

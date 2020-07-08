@@ -12,6 +12,7 @@ const TabStack = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 const MyStack = () => {
+ 
     return(
         <Stack.Navigator>
             <Stack.Screen name="Emp" component={EmpScreen} 
@@ -43,7 +44,7 @@ const MyStack = () => {
                         },
                     }}/>
             <Stack.Screen name="EmpPayment" component={EmpPaymentScreen} 
-                        options={{ title: '금액 현황',
+                        options={{ title: '결제화면',
                         headerTitleAlign: 'center',
                         headerStyle: {backgroundColor: 'transparent',},
                         headerTintColor: 'black',

@@ -1,0 +1,32 @@
+[
+	{
+		name: 'Stewed Mushrooms',
+		image: require('../../images/1.png'),
+		ratings: 3,
+		price: '$126'
+	},
+	{
+		name: 'Stewed Mushrooms22',
+		image: require('../../images/2.png'),
+		ratings: 2,
+		price: '$125'
+	},
+	{
+		name: 'Stewed Mushrooms33',
+		image: require('../../images/3.png'),
+		ratings: 1,
+		price: '$124'
+	},
+	{
+		name: 'Stewed Mushrooms44',
+		image: require('../../images/4.png'),
+		ratings: 5,
+		price: '$132'
+	},
+	{
+		name: 'Stewed Mushrooms55',
+		image: require('../../images/5.png'),
+		ratings: 4,
+		price: '$112'
+	},
+]
