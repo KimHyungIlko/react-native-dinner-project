@@ -4,7 +4,7 @@ import {View, Text} from 'react-native';
 const RetScreen = () => {
     return(
         <View style ={{flex:1}}>
-          <Text>RetScreen 안녕 잘지내보자 </Text>
+          <Text>EmpRetScreen 안녕 잘지내보자 </Text>
         </View>
     );
 
