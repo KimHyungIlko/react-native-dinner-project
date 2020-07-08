@@ -13,30 +13,30 @@ const Stack = createStackNavigator();
 const MyStack = () => {
     return(
         <Stack.Navigator>
-            <Stack.Screen name="emp" component={EmpScreen} 
+            <Stack.Screen name="Emp" component={EmpScreen} 
             options={{ title: '직원용',
                         headerTitleAlign: 'center',
-                        headerStyle: {backgroundColor: '#f4511e',},
-                        headerTintColor: '#fff',
+                        headerStyle: {backgroundColor: 'transparent',},
+                        headerTintColor: 'black',
                         headerTitleStyle: {
                         fontWeight: 'bold',
                         },
                     }} />
             <Stack.Screen name="Mgr" component={MgrScreen} options={{headerShown: "false"}}/>
             <Stack.Screen name="EmpRet" component={EmpRetScreen} 
-            options={{ title: 'EmpRet',
+            options={{ title: '음식점',
                         headerTitleAlign: 'center',
-                        headerStyle: {backgroundColor: '#f4511e',},
-                        headerTintColor: '#fff',
+                        headerStyle: {backgroundColor: 'transparent',},
+                        headerTintColor: 'black',
                         headerTitleStyle: {
                         fontWeight: 'bold',
                         },
                     }}/>
             <Stack.Screen name="EmpMoney" component={EmpMoneyScreen} 
-                        options={{ title: 'EmpMoney',
+                        options={{ title: '금액 현황',
                         headerTitleAlign: 'center',
-                        headerStyle: {backgroundColor: '#f4511e',},
-                        headerTintColor: '#fff',
+                        headerStyle: {backgroundColor: 'transparent',},
+                        headerTintColor: 'black',
                         headerTitleStyle: {
                         fontWeight: 'bold',
                         },
