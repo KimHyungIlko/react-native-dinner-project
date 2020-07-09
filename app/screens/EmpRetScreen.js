@@ -171,10 +171,10 @@ export default class EmpRetScreen extends React.Component {
         </View>
         <TouchableOpacity 
         onPress={() => this.props.navigation.navigate('EmpPayment',
-          {image:item.image,
-          price: item.price,
-          name:item.name}
-          )} 
+                  {image:item.image,
+                  price: item.price,
+                  name:item.name}
+                  )} 
         style={styles.button}>
           <AntDesign
             name='arrowright'
