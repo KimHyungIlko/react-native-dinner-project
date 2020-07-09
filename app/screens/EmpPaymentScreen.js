@@ -35,7 +35,7 @@ export default class EmpPaymentScreen extends React.Component {
           </View>
           <Card style={styles.cardSpot}>
             <Card.Actions>
-              <Button style={styles.button}>확인</Button>
+              <Button>확인</Button>
               <Button>취소</Button>
             </Card.Actions>
           </Card>
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     height: 200,
     marginTop: 70,
     borderRadius: 90,
+    borderWidth: 10,
   },
   textline: {
     height: 40,
