@@ -30,15 +30,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    color: 'white',
-    marginTop: 25,
+    color: 'black',
+    marginTop: 30,
     fontWeight: 'bold',
     fontSize: 25,
     left: 5,
   },
   flatList: {
     flex: 1,
-    // marginTop:10,
+    marginTop: 10,
+    width: width * 0.89,
+    justifyContent: 'center',
+    marginLeft: 15,
   },
   item: {
     flex: 1,
@@ -153,7 +156,7 @@ export default class EmpRetScreen extends React.Component {
   renderItem = ({item}) => {
     return (
       <LinearGradient
-        colors={['#4c669f', '#2b4887']}
+        colors={['#9e9c96', '#faf9f7']}
         start={{x: 0, y: 1}}
         end={{x: 1, y: 0}}
         style={styles.item}>
@@ -192,14 +195,13 @@ export default class EmpRetScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
-          <ImageBackground
-            source={require('../../images/background.png')}
-            style={styles.ImageBackground}
-            resizeMode="center">
-            <Text style={styles.title}>직원 확인</Text>
-          </ImageBackground>
-        </View>
+        <LinearGradient
+          colors={['#9e9c96', '#faf9f7']}
+          start={{x: 0, y: 1}}
+          end={{x: 1, y: 0}}
+          style={{height: 80}}>
+          <Text style={styles.title}>직원 확인</Text>
+        </LinearGradient>
         <View style={styles.flatList}>
           <FlatList
             data={this.state.data}
