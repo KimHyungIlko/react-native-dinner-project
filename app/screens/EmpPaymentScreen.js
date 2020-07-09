@@ -1,78 +1,77 @@
 import React, {Component} from 'react';
 import {
-  TextInput, ScrollView, View, Image, StyleSheet, Text,
- } from 'react-native';
- import { 
-   Card ,Button
- } from 'react-native-paper'; 
- 
-export default class EmpPaymentScreen extends React.Component {
-  render(){
-    console.log(this.props.navigation);
+  TextInput,
+  ScrollView,
+  View,
+  Image,
+  StyleSheet,
+  Text,
+} from 'react-native';
+import {Card, Button} from 'react-native-paper';
 
+export default class EmpPaymentScreen extends React.Component {
+  render() {
+    console.log('props: ', this.props.route.params);
     return (
       <ScrollView>
         <View style={styles.container}>
-          
-          <Image style = {styles.food}
-          source={this.props.navigation.state.params.image}
-          />
+          <Image style={styles.food} source={this.props.route.params.image} />
 
           <View style={styles.textline}>
-              <TextInput
-                placeholder="인원을 입력하세요"
-                onChangeText={(text) => this.setState({text})}
-              />
-              <Text style={styles.staticText}>원</Text>
+            <TextInput
+              placeholder="인원을 입력하세요"
+              onChangeText={text => this.setState({text})}
+            />
+            <Text style={styles.staticText}>원</Text>
           </View>
           <View style={styles.textline}>
             <TextInput
               style={styles.textline}
               placeholder="금액을 입력하세요"
-              onChangeText={(text) => this.setState({text})}
+              onChangeText={text => this.setState({text})}
             />
             <Text style={styles.staticText}>명</Text>
           </View>
           <Card style={styles.cardSpot}>
-         <Card.Actions>
-          <Button>확인</Button>
-          <Button>취소</Button>
-         </Card.Actions>
-        </Card>
+            <Card.Actions>
+              <Button>확인</Button>
+              <Button>취소</Button>
+            </Card.Actions>
+          </Card>
         </View>
       </ScrollView>
-    ) 
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    alignItems:'center',
+    alignItems: 'center',
   },
-  food : {
+  food: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#9AA9FF',
-    width : 200,
-    height : 200,
+    width: 200,
+    height: 200,
     marginTop: 32,
-    borderRadius : 90,
+    borderRadius: 90,
   },
-  textline : {
+  textline: {
     height: 40,
-    marginTop : 30,
+    marginTop: 30,
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor:'#eee',
-    borderBottomWidth:0.5,
+    borderColor: '#eee',
+    borderBottomWidth: 0.5,
   },
   staticText: {
     flexDirection: 'row',
-    marginTop : 20,
-    marginLeft : 5,
+    marginTop: 20,
+    marginLeft: 5,
   },
-  cardSpot : {
-    marginTop : 50,
+  cardSpot: {
+    marginTop: 50,
   },
 });
