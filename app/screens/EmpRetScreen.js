@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   View, Image, Text, TouchableOpacity, 
   ImageBackground ,StyleSheet, Dimensions, FlatList} from 'react-native';
-import { useNavigation } from '@react-navigation/native'; //필수로 필요함 페이지 이동시에 
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
@@ -92,7 +91,6 @@ const styles = StyleSheet.create({
 
 
 export default class EmpRetScreen extends React.Component {
-
   constructor(props){
     super(props);
     this.state={
@@ -133,6 +131,7 @@ export default class EmpRetScreen extends React.Component {
 
   _rating(item){
     let rating =[];
+    let i;
     for(i=0;i<item;i++){
       rating.push(
         <Image
@@ -170,7 +169,13 @@ export default class EmpRetScreen extends React.Component {
             </Text>
           </Text>
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+        onPress={() => this.props.navigation.navigate('EmpPayment',
+          {image:item.image,
+          price: item.price,
+          name:item.name}
+          )} 
+        style={styles.button}>
           <AntDesign
             name='arrowright'
             color="black"
@@ -189,7 +194,6 @@ export default class EmpRetScreen extends React.Component {
     )
   }
 
-  // navigation = useNavigation(); //페이지이동 필수 요소
   render(){
     return(
         <View style ={styles.container}>
