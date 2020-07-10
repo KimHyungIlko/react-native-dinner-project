@@ -10,18 +10,28 @@ import {
 import {Card, Button} from 'react-native-paper';
 
 export default class EmpPaymentScreen extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+        name: this.props.route.params.name,
+        image: this.props.route.params.image,
+        people: 1,
+        price: 0,
+    }
+}
   render() {
     console.log('props: ', this.props.route.params);
+    console.log('state: ', this.state.people);
     return (
       <ScrollView style={{backgroundColor: 'white'}}>
         <View style={styles.container}>
-          <Image style={styles.food} source={this.props.route.params.image} />
+          <Image style={styles.food} source={this.state.image} />
 
           <View style={styles.textline}>
             <TextInput
               style={styles.textline}
               placeholder="인원을 입력하세요"
-              onChangeText={text => this.setState({text})}
+              onChangeText={people => this.setState({people})}
             />
             <Text style={styles.staticText}>명</Text>
           </View>
@@ -29,13 +39,17 @@ export default class EmpPaymentScreen extends React.Component {
             <TextInput
               style={styles.textline}
               placeholder="금액을 입력하세요"
-              onChangeText={text => this.setState({text})}
+              onChangeText={price => this.setState({price})}
             />
             <Text style={styles.staticText}>원</Text>
           </View>
           <Card style={styles.cardSpot}>
             <Card.Actions>
-              <Button>확인</Button>
+              <Button onPress={() => this.props.navigation.navigate('EmplastPay',
+              {image:this.state.image,
+                name:this.state.name,
+                price:this.state.price,
+                people:this.state.people})}>확인</Button>
               <Button>취소</Button>
             </Card.Actions>
           </Card>
@@ -55,15 +69,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#9AA9FF',
-    width: 200,
-    height: 200,
-    marginTop: 70,
+    width: 230,
+    height: 230,
+    marginTop: 40,
     borderRadius: 90,
     borderWidth: 10,
   },
   textline: {
     height: 40,
-    marginTop: 50,
+    marginTop: 40,
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: '#eee',

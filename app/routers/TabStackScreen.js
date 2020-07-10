@@ -7,6 +7,7 @@ import MgrScreen from '../screens/MgrScreen';
 import EmpRetScreen from '../screens/EmpRetScreen';
 import EmpMoneyScreen from '../screens/EmpMoneyScreen';
 import EmpPaymentScreen from '../screens/EmpPaymentScreen';
+import EmplastPayScreen from '../screens/EmplastPayScreen';
 
 const TabStack = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -63,6 +64,19 @@ const MyStack = () => {
         component={EmpPaymentScreen}
         options={{
           title: '결제화면',
+          headerTitleAlign: 'center',
+          headerStyle: {backgroundColor: 'transparent'},
+          headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
+      <Stack.Screen
+        name="EmplastPay"
+        component={EmplastPayScreen}
+        options={{
+          title: '최종 결제 화면',
           headerTitleAlign: 'center',
           headerStyle: {backgroundColor: 'transparent'},
           headerTintColor: 'black',

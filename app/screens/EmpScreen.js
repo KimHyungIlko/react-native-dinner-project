@@ -58,7 +58,7 @@ const EmpScreen = ({navigation, route}) => {
         <Text style={styles.buttonText}>금액 사용 현황</Text>
       </TouchableOpacity>
 
-      <Text>Empscreenㄹㄴㅇㅁㄹㄴㅇㅁㄹㅇ 입니다</Text>
+      <Text>Empscreenㄹㅇ 입니다</Text>
     </View>
   );
 };
